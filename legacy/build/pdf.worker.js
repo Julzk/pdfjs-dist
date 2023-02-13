@@ -19,6 +19,7 @@
  * @licend The above is the entire license notice for the
  * JavaScript code in this page
  */
+var streams = require("web-streams-polyfill/ponyfill");
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -67719,7 +67720,7 @@ class MessageHandler {
       sourceName = this.sourceName,
       targetName = this.targetName,
       comObj = this.comObj;
-    return new ReadableStream({
+    return new streams.ReadableStream({
       start: controller => {
         const startCapability = (0, _util.createPromiseCapability)();
         this.streamControllers[streamId] = {
